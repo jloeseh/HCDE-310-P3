@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+    <head>
+        <meta charset = 'utf-8'>
+        <link href = "{{ url_for('static', filename='styles.css')}}" rel = 'stylesheet' />
+        <title>Random Elephant Generator</title>
+    </head>
+    <body>
+        <header>
+            <h1>
+                Random Elephant Generator
+            </h1>
+        </header>
+        <section class = 'elephant'>
+            {% if elephant %}
+                <p class = bold>Name: </p><p>{{elephant['name']}}</p>
+                <p class = bold>Species: </p><p>{{elephant['species']}}</p>
+                <p class = bold>Sex: </p><p>{{elephant['sex']}}</p>
+                <p class = bold>Date of Birth: </p><p>{{elephant['dob']}}</p>
+                <p class = bold>Date of Death: </p><p>{{elephant['dod']}}</p>
+                <img src = "{{elephant['image']}}"/>
+                <p class = bold>More information: </p><p>{{elephant['note']}}</p>
+            {% endif %}
+        </section>
+        <form action = '/' method = 'post'>
+            <input type = 'submit' value = 'Generate' name = 'random'/>
+        </form>
+    </body>
+</html>
